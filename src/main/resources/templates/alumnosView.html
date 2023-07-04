@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>JAVA Developer - Escuela</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{/css/jquery-ui.min.css}" />
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#"> Spring Boot</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarNav" aria-controls="navbarNav"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active"><a class="nav-link" href="#">Inicio
+                <span class="sr-only">(current)</span>
+            </a></li>
+            <li class="nav-item"><a class="nav-link" th:href="@{/cursos}">Cursos</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" th:href="@{/alumnos}">Alumnos</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<div class="container">
+    <h1 class="text-secondary border border-success border-top-0 border-left-0 border-right-0"
+    >Mantenimiento de Alumnos</h1>
+
+    <table class="table table-striped">
+        <thead class="bg-dark">
+        <tr>
+            <th>id</th>
+            <th>nombre</th>
+            <th>apellidos</th>
+            <th>Fecha Nac.</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="alumno: ${alumnos}">
+            <td th:text="${alumno.id}"></td>
+            <td th:text="${alumno.nombre}"></td>
+            <td th:text="${alumno.apellidos}"></td>
+            <td th:text="${alumno.fechaNac}"></td>
+        </tr>
+        </tbody>
+
+    </table>
+</body>
+</html>
